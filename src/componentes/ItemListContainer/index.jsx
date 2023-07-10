@@ -1,10 +1,10 @@
 import "./index.css"
-import portada from "C:/WorkSpace/proyecto-react-Angel_Mujica/proyecto-react/src/img/portada.webp"
+import portada from "../img/portada.webp"
 
-const ItemListContainer = () => {
+const ItemListContainer = (propiedades) => {
     return(
         <>
-            <p className="parrafoItems">BIENVENIDOS A BRAWL STARS STORE</p>
+            <p className="parrafoItems">{propiedades.valor}</p>
             <div className="contPortada"><img src= {portada} alt="portada de la tienda"/></div>
         </>
     )
