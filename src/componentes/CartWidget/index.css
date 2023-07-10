@@ -1,0 +1,11 @@
+.contCarrito{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.contCarrito p{
+    color: white;
+}
