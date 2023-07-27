@@ -1,0 +1,21 @@
+.contenedorImagen{
+    width: 50%;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contenedorImagen img{
+    width: 70%;
+}
+
+.contenedorInfo{
+    width: 50%;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 2rem;
+}

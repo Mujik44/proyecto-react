@@ -1,11 +1,13 @@
 import "./index.css"
-import portada from "../img/portada.webp"
+import ItemList from "../ItemList"
 
-const ItemListContainer = (propiedades) => {
+const ItemListContainer = (props) => {
+
     return(
         <>
-            <p className="parrafoItems">{propiedades.valor}</p>
-            <div className="contPortada"><img src= {portada} alt="portada de la tienda"/></div>
+            <ItemList
+                data={props.data}
+            />
         </>
     )
 }

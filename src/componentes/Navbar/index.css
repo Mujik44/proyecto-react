@@ -1,9 +1,19 @@
 .navbar{
     width: 100%;
-    height: auto;
+    height: 7rem;
     background-color: black;
     display: flex;
     justify-content: space-between;
+}
+
+.contenedorLogo{
+    height: 7rem;
+}
+
+.contenedorLogo img{
+    height: 100%;
+    width: 120%;
+    padding: 1rem;
 }
 
 .titleNavbar, ul{
@@ -22,11 +32,16 @@ ul{
     gap: 2rem;
 }
 
+ul a:link, ul a:visited, ul a:active{
+    text-decoration: none;
+    color: white;
+}
+
 li{
     cursor: pointer;
     font-size: 20px;
 }
 
 li:hover{
-    color: var(--rojo);
+    color: var(--azul);
 }
