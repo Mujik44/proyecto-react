@@ -1,33 +1,16 @@
-import { useState } from "react"
+import { useContext } from "react"
+import { CartContext } from "../../context/Cart/Provider"
 import './index.css'
 
-const ItemCount = ({stock, initial, onAdd}) => {
-    const [quantity, setQuantity] = useState(initial)
+const ItemCount = (props) => {
 
-    const incremento = () => {
-        if (quantity < stock) {
-            setQuantity(quantity+1)
-        }
-    }
-
-    const decremento = () => {
-        if (quantity > 1) {
-            setQuantity(quantity-1)
-        }
-    }
+    const { addItemToCart } = useContext(CartContext);
 
     return(
         <div className="Counter">
-            <div className="Controls">
-                <button className="Button" onClick={decremento}>-</button>
-                <h3 className="Number">{quantity}</h3>
-                <button className="Button" onClick={incremento}>+</button>                
-            </div>
-            <div>
-                <button className="Button" onClick={() => onAdd(quantity)} disabled={!stock}>
-                    Agregar al carrito
-                </button>
-            </div>
+            <button className="Button" onClick={() => addItemToCart(props.data)}> 
+                Agregar al carrito
+            </button>
         </div>
     )
 }

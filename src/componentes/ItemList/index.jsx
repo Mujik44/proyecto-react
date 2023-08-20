@@ -27,9 +27,7 @@ const ItemList = (props) => {
                         id={personaje.id}
                     />
                     <ItemCount
-                        initial={1}
-                        stock={12}
-                        onAdd={(quantity) => console.log('Cantidad agregada', quantity)}
+                        data={personaje}
                     />
                 </div>
             )

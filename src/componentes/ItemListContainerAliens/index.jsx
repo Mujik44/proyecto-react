@@ -9,7 +9,7 @@ const ItemListContainerAliens = (props) => {
 
         const personajesList = props.data.map((personaje) => {
 
-            if(personaje.species === "Alien"){
+            if(personaje.species === "Aliens"){
 
                 const name = personaje.name;
                 const image = personaje.image;
@@ -28,9 +28,7 @@ const ItemListContainerAliens = (props) => {
                             id={personaje.id}
                         />
                         <ItemCount
-                            initial={1}
-                            stock={12}
-                            onAdd={(quantity) => console.log('Cantidad agregada', quantity)}
+                            data={personaje}
                         />
                     </div>
                 )
