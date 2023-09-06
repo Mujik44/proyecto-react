@@ -1,0 +1,96 @@
+.contCheckout{
+    width: 60%;
+    margin: 3rem;
+    display: grid;
+    justify-items: center;
+    border: black solid;
+    border-radius: 10px;
+}
+
+.contTitulo{
+    padding: 1rem;
+}
+
+.contResumen{
+    width: 90%;
+}
+
+.contResumen p{
+    padding: 1rem;
+    font-size: 20px;
+}
+
+.contProduct{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    padding: 1rem;
+}
+
+.contImage{
+    height: 100%;
+}
+
+.contImage img{
+    height: 100%;
+}
+
+.contCount{
+    width: 10%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.eliminate{
+    cursor: pointer;
+}
+
+.totalTitle{
+    padding: 1rem;
+    width: 90%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btnComprar{
+    padding: 1rem;
+    font-size: 20px;
+}
+
+.contCheckoutFinal{
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.return{
+    padding: 15px;
+}
+
+.contDatos{
+    gap: 20px;
+}
+
+.contInputs{
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+}
+
+.contResumenFinal{
+    width: 30%;
+    margin: 15px 0;
+    border-radius: 5px;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contProductResumen{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 15px;
+}

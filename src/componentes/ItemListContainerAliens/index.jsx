@@ -1,5 +1,5 @@
 import Item from "../Item"
-import ItemCount from "../ItemCount"
+import ButtonAdd from "../ButtonAdd"
 import ButtonDetail from "../ButtonDetail"
 import './index.css'
 
@@ -15,6 +15,7 @@ const ItemListContainerAliens = (props) => {
                 const image = personaje.image;
                 const gender = personaje.gender;
                 const species = personaje.species;
+                const price = personaje.price;
     
                 return(
                     <div className="contenedorItemButton">
@@ -23,11 +24,12 @@ const ItemListContainerAliens = (props) => {
                             image = {image}
                             gender = {gender}
                             species = {species}
+                            price = {price}
                         />
                         <ButtonDetail
                             id={personaje.id}
                         />
-                        <ItemCount
+                        <ButtonAdd
                             data={personaje}
                         />
                     </div>

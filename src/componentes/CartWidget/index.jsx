@@ -7,15 +7,14 @@ import { Link } from "react-router-dom";
 
 const CartWidget = (props) => {
 
-    const { productos, quantity } = useContext(CartContext);
-    console.log('productos:', productos)
+    const { quantity, Return } = useContext(CartContext);
 
     return (
-        <Link to={'/checkout'}>
-            <button className="contCarrito">
+        <Link to={'/cart'}>
+            <div className="contCarrito" onClick={() => Return()}>
                 <FontAwesomeIcon icon={faCartShopping} style={{color: "#f01919",}} />
                 <p>{quantity}</p>
-            </button>
+            </div>
         </Link>
     )
 }

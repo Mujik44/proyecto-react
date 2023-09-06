@@ -1,8 +1,9 @@
 import { useParams } from 'react-router-dom'
-import ItemCount from '../ItemCount'
+import ButtonAdd from '../ButtonAdd';
 import { useEffect, useState } from 'react';
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, doc, getDoc, getDocs } from 'firebase/firestore';
+import ItemCount from '../ItemCount';
 import './index.css'
 
 const firebaseConfig = {
@@ -61,7 +62,8 @@ const ItemDetail = (props) => {
                 <h2>Origen: {personaje.origin.name}</h2>
                 <h2>Especie: {personaje.species}</h2>
                 <h2>Estatus: {personaje.status}</h2>
-                <ItemCount
+                <p className='price'>${personaje.price}</p>
+                <ButtonAdd
                     data={personaje}
                 />
             </div>

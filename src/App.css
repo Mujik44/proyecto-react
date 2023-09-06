@@ -20,11 +20,20 @@ h1, h2, h3, h4, h5, h6, p, a, input, textarea, ul {
     padding: 0;
 }
 
-ul,li,h1,h2,h4,a,button{
+ul,li,h1,h2,h4,a,button,p{
     font-family: 'Lilita One', cursive;
     text-align: center;
 }
 
 p{
     font-family: 'Nunito', sans-serif;
+}
+
+#mainContenedor{
+    display: flex;
+    justify-content: center;
+}
+
+.disabled{
+    display: none;
 }

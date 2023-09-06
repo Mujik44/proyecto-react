@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import './index.css'
 import Item from '../Item'
 import ButtonDetail from "../ButtonDetail";
-import ItemCount from "../ItemCount";
+import ButtonAdd from "../ButtonAdd";
+import './index.css'
 
 const ItemList = (props) => {
 
@@ -14,6 +14,7 @@ const ItemList = (props) => {
             const image = personaje.image;
             const gender = personaje.gender;
             const species = personaje.species;
+            const price = personaje.price;
 
             return(
                 <div className="contenedorItemButton">
@@ -22,11 +23,12 @@ const ItemList = (props) => {
                         image = {image}
                         gender = {gender}
                         species = {species}
+                        price = {price}
                     />
                     <ButtonDetail
                         id={personaje.id}
                     />
-                    <ItemCount
+                    <ButtonAdd
                         data={personaje}
                     />
                 </div>

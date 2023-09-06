@@ -1,48 +1,107 @@
-import { Link } from "react-router-dom"
-import { useContext } from "react"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash, faRotateLeft } from "@fortawesome/free-solid-svg-icons";
+import React from "react";
+import { useContext, useState } from "react"
 import { CartContext } from "../../context/Cart/Provider"
+import ButtonBuy from "../ButtonBuy";
 import './index.css'
 
-const Checkout = (props) => {
+const Checkout = () => {
 
-    const { productos } = useContext(CartContext);
+    const { productos, removeItemToCart, isContCheckout, Return } = useContext(CartContext);
 
-    console.log(productos)
+    let contenido = false;
 
-    // function renderCompra(){
+    if (productos.length > 0) {
+        contenido = true;
+    }
 
-    //     const compraList = productos.map((personaje) => {
-    //     const contador = 1  
+    let total = 0;
 
-    //         for (let i = 0; i < productos.length; i++) {
-    //             if (productos[i+1] === productos[i]) {
-    //                 cantidad++;
-    //             }
-    //             else{
+    function renderCompra(){
 
-    //             }
-    //         }
+        const compraList = productos.map((personaje) => {
 
-    //         const name = personaje.name;
-    //         const image = personaje.image;
-    //         const price = personaje.price;
-    //         const cantidad = cantidad;
+            const id = personaje.id;
+            const name = personaje.name;
+            const image = personaje.image;
+            const price = personaje.price;
+            const cantidad = personaje.cant;  
 
-    //     })
+            total += price*cantidad;
 
-    //     return(
+            const resultado = personaje;
 
-    //     )
-    // }
+            return(
+                <>
+                    {isContCheckout 
+                        ?   <div className="contProduct">
+                                <h2 className="nameProduct">{name}</h2>
+                                <div className="contImage"><img src={image} alt={name}/></div>
+                                <h3 className="quantityProduct">{cantidad}</h3>
+                                <h3 className="priceProduct">{price*cantidad} $</h3>
+                                <div className="eliminate" onClick={() => {removeItemToCart(resultado)}}><FontAwesomeIcon icon={faTrash} style={{color: "#ff0000",}} /></div>
+                            </div> 
+                        :   <div className="contProductResumen">
+                                <h2 className="nameProductResumen">{name}</h2>
+                                <h3 className="quantityProductResumen">X {cantidad}</h3>
+                                <h3 className="priceProductResumen">{price*cantidad} $</h3>
+                                <div className="eliminate" onClick={() => {removeItemToCart(resultado)}}><FontAwesomeIcon icon={faTrash} style={{color: "#ff0000",}} /></div>
+                            </div>
+                    }
+                </>
+            )
+        })
+        return compraList;
+    }
 
     return(
         <>
-            <div className="contCheckout">
+            <div className={isContCheckout ? "contCheckout" : "contCheckout disabled"}>
                 <div className="contTitulo">
                     <h2>CARRITO DE COMPRA</h2>
                 </div>
                 <div className="contResumen">
-                    
+                    {contenido ? renderCompra() : <p>El carrito esta vacio 😢</p>}
+                </div>
+                <div className="totalTitle">
+                    {contenido ? <h2>TOTAL: {total} $</h2> : <></>}
+                </div>
+                <div>
+                    <ButtonBuy
+                        contenido={contenido}
+                    />
+                </div>
+            </div>
+            <div className={isContCheckout ? "contCheckoutFinal disabled" : "contCheckoutFinal"}>
+                <div className="contUnir">
+                    <div className="return" onClick={() => Return()}>
+                        <FontAwesomeIcon icon={faRotateLeft} style={{color: "#ff0000",}} />
+                    </div>
+                    <div className="contDatos">
+                        <div className="titleDatos">
+                            <h2>DATOS PERSONALES</h2>    
+                        </div>
+                        <div className="contInputs">
+                            <input type="text" className="inputNombres" placeholder="Nombres"/>
+                            <input type="text" className="inputApellidos" placeholder="Apellidos"/>
+                            <input type="text" className="inputNumber" placeholder="Numero de Celular" />
+                        </div>
+                        <div>
+                            <button className="btnComprar">COMPRAR</button>
+                        </div>
+                    </div>
+                </div>
+                <div className="contResumenFinal">
+                    <div className="titleResumenFinal">
+                        <h2>RESUMEN</h2>
+                    </div>
+                    <div className="contProductsResumen">
+                        {renderCompra()}
+                    </div>
+                    <div className="totalTitle">
+                        <h2>TOTAL: {total/2} $</h2>
+                    </div>
                 </div>
             </div>
         </>
